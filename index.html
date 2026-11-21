@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fameshire | GTA6 Roleplay Community</title>
+  <meta name="description" content="Fameshire GTA6 Roleplay — English, Russian and Arabic servers coming soon. Log in with Entra ID." />
+  <link rel="stylesheet" href="css/style.css" />
+  <script type="text/javascript" src="https://alcdn.msauth.net/lib/1.4.0/js/msal-browser.min.js" integrity="sha384-4pBQK9z4Z4gqB6H1XJZ5L7y3N7nN7mM7kK7kK7kK7kK7kK7kK7kK7kK7kK7kK7" crossorigin="anonymous"></script>
+</head>
+<body>
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#" class="nav-logo">Fameshire</a>
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#servers">Servers</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <button id="loginBtn" class="btn-login" onclick="handleLogin()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:6px; vertical-align:middle;"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          Sign in with Entra ID
+        </button>
+        <button id="profileBtn" class="btn-profile hidden" onclick="handleProfile()">
+          <span id="userName">User</span>
+        </button>
+        <button id="logoutBtn" class="btn-logout hidden" onclick="handleLogout()">Sign out</button>
+      </div>
+    </div>
+  </nav>
+
+  <section id="home" class="hero">
+    <div class="hero-container">
+      <div class="hero-content">
+        <span class="badge">Coming Soon</span>
+        <h1>We&rsquo;re thrilled about GTA6.</h1>
+        <p class="hero-subtitle">
+          Fameshire is preparing to launch dedicated Grand Theft Auto VI roleplay servers
+          the moment the game releases. Join our community and help shape the streets of
+          Vice City in your own language.
+        </p>
+        <div class="hero-actions">
+          <button class="btn-primary" onclick="handleLogin()">Log in with Entra ID</button>
+          <a href="#servers" class="btn-outline">View Servers</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="glitch-card">
+          <div class="card-server card-en">
+            <span class="flag">🇬🇧</span>
+            <h3>English</h3>
+            <p>NA / EU Roleplay</p>
+          </div>
+          <div class="card-server card-ru">
+            <span class="flag">🇷🇺</span>
+            <h3>Русский</h3>
+            <p>Ролевая игра</p>
+          </div>
+          <div class="card-server card-ar">
+            <span class="flag">🇸🇦</span>
+            <h3>العربية</h3>
+            <p>لعب الأدوار</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="servers" class="servers">
+    <div class="container">
+      <h2 class="section-title">Our Roleplay Servers</h2>
+      <p class="section-subtitle">
+        Three dedicated communities launching day one with GTA6. Choose your language and
+        city below.
+      </p>
+      <div class="server-grid">
+        <article class="server-card" data-lang="en">
+          <div class="server-flag">🇬🇧</div>
+          <h3>English Server</h3>
+          <p>North American &amp; European roleplay community. English-speaking factions, jobs, and events.</p>
+          <div class="server-meta">
+            <span>🌍 NA / EU</span>
+            <span>🗣️ English</span>
+            <span>📅 Launch: GTA6 Release Day</span>
+          </div>
+          <button class="btn-join" onclick="joinServer('en')">Join Waitlist</button>
+        </article>
+        <article class="server-card" data-lang="ru">
+          <div class="server-flag">🇷🇺</div>
+          <h3>Русский Сервер</h3>
+          <p>Российское сообщество ролевой игры. Фракции, работы и события на русском языке.</p>
+          <div class="server-meta">
+            <span>🌍 RU / CIS</span>
+            <span>🗣️ Русский</span>
+            <span>📅 Запуск: В день выхода GTA6</span>
+          </div>
+          <button class="btn-join" onclick="joinServer('ru')">Присоединиться к листу ожидания</button>
+        </article>
+        <article class="server-card" data-lang="ar">
+          <div class="server-flag">🇸🇦</div>
+          <h3>السيرفر العربي</h3>
+          <p>مجتمع لعب الأدوار الناطق باللغة العربية. فرق، وظائف وأحداث باللغة العربية.</p>
+          <div class="server-meta">
+            <span>🌍 MENA</span>
+            <span>🗣️ العربية</span>
+            <span>📅 الإطلاق: يوم إصدار GTA6</span>
+          </div>
+          <button class="btn-join" onclick="joinServer('ar')">انضم إلى قائمة الانتظار</button>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="about bg-alt">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-content">
+          <h2 class="section-title">About Fameshire</h2>
+          <p>
+            Fameshire is a community-driven gaming network built for immersive roleplay
+            experiences. Our mission is to deliver stable, well-moderated GTA6 roleplay
+            servers where players from every background can tell their stories.
+          </p>
+          <p>
+            Secure access is powered by <strong>Microsoft Entra ID</strong>, so your
+            account and progress are protected with enterprise-grade identity protection.
+          </p>
+          <ul class="feature-list">
+            <li><strong>3 Languages:</strong> English, Russian, and Arabic</li>
+            <li><strong>Launch:</strong> Day one with GTA6 release</li>
+            <li><strong>Auth:</strong> Microsoft Entra ID single sign-on</li>
+            <li><strong>Community:</strong> Player-run factions and events</li>
+          </ul>
+        </div>
+        <div class="about-visual">
+          <div class="count-stat">
+            <div class="stat-number" id="statPlayers">0</div>
+            <div class="stat-label">Registered Players</div>
+          </div>
+          <div class="count-stat">
+            <div class="stat-number">3</div>
+            <div class="stat-label">Language Servers</div>
+          </div>
+          <div class="count-stat">
+            <div class="stat-number">1</div>
+            <div class="stat-label">Grand Vision</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2 class="section-title">Stay Informed</h2>
+      <p>Sign in with Entra ID to receive launch notifications and server access invites.</p>
+      <div class="contact-form">
+        <input type="email" id="contactEmail" placeholder="your@email.com" />
+        <button class="btn-primary" onclick="notifyMe()">Notify Me</button>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">Fameshire</div>
+      <p class="footer-copy">
+        &copy; <span id="year"></span> Fameshire GTA6 Roleplay Community. Not affiliated
+        with Rockstar Games. GTA6 is a trademark of Take-Two Interactive.
+      </p>
+      <div class="footer-links">
+        <a href="#">Terms of Service</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Code of Conduct</a>
+      </div>
+    </div>
+  </footer>
+
+  <div id="authToast" class="toast hidden">
+    <div class="toast-body">
+      <span id="authToastMsg"></span>
+      <button onclick="closeToast()" class="toast-close">&times;</button>
+    </div>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/ui.js"></script>
+</body>
+</html>

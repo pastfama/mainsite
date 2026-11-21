@@ -1,0 +1,39 @@
+{
+  "navigationFallback": {
+    "rewrite": "/index.html",
+    "exclude": [
+      "/images/*",
+      "/css/*",
+      "/js/*"
+    ]
+  },
+  "mimeTypes": {
+    ".json": "application/json"
+  },
+  "headers": {
+    "/index.html": {
+      "strict-transport-security": "max-age=31536000; includeSubDomains",
+      "content-security-policy": "default-src 'self' https://alcdn.msauth.net; script-src 'self' https://alcdn.msauth.net; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://login.microsoftonline.com https://*.msauth.net; frame-ancestors 'none';",
+      "permissions-policy": "interest-cohort=()"
+    },
+    "/**": {
+      "strict-transport-security": "max-age=31536000; includeSubDomains",
+      "x-content-type-options": "nosniff",
+      "x-frame-options": "DENY",
+      "referrer-policy": "no-referrer-when-downgrade",
+      "permissions-policy": "interest-cohort=()"
+    }
+  },
+  "redirects": [
+    {
+      "source": "http://www.fameshire.com",
+      "destination": "https://www.fameshire.com",
+      "statusCode": 301
+    },
+    {
+      "source": "http://fameshire.com",
+      "destination": "https://fameshire.com",
+      "statusCode": 301
+    }
+  ]
+}
